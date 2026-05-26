@@ -11,7 +11,7 @@ const siteUrl = 'https://bunin.app/';
 const siteName = 'bunIn · 번인';
 const pageTitle = 'bunIn 번인 | 풀스택·앱·클라우드 네이티브 개발 기업';
 const pageDescription =
-  'bunIn(번인)은 React, Next.js, Vite, React Native, Kotlin, Swift, Java, Rust, Go, Docker, Kubernetes, Argo CD까지 다루는 풀스택·앱·클라우드 네이티브 개발 기업입니다.';
+  'bunIn(번인)은 아이디어를 화면, 앱, 백엔드, 배포 운영까지 이어 실제로 돌아가는 제품으로 만드는 풀스택 개발 기업입니다.';
 const ogImageUrl = 'https://bunin.app/og-image.png';
 const keywordContent = [
   'bunIn',
@@ -111,7 +111,7 @@ const faqJsonLd = {
       name: 'bunIn은 어떤 기업인가요?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'bunIn(번인)은 React, Next.js, Vite, React Native, Kotlin, Swift, Java, Rust, Go, Docker, Kubernetes, Argo CD까지 다루는 풀스택·앱·클라우드 네이티브 개발 기업입니다.',
+        text: 'bunIn(번인)은 아이디어를 화면, 앱, 백엔드, 배포 운영까지 이어 실제로 돌아가는 제품으로 만드는 풀스택 개발 기업입니다.',
       },
     },
     {
@@ -119,7 +119,7 @@ const faqJsonLd = {
       name: 'bunIn은 어떤 일을 잘하나요?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '고객용 웹앱, 내부 관리자 페이지, 모바일 앱, 백엔드 API, 업무 자동화, Docker/Kubernetes 기반 인프라, Argo CD 배포 자동화까지 제품과 운영을 함께 설계합니다.',
+        text: '고객용 화면, 내부 운영 도구, 모바일 앱, 데이터 흐름, 업무 자동화, 배포 운영까지 제품이 실제로 쓰이는 전 과정을 함께 설계합니다.',
       },
     },
     {
@@ -142,7 +142,7 @@ const softwareJsonLd = {
   programmingLanguage: ['TypeScript', 'React Native'],
   applicationCategory: 'DeveloperApplication',
   description:
-    'bunIn의 엔지니어링 깊이를 보여주는 오픈소스 기술 자산으로, 모바일 앱의 기능 모듈 독립 배포와 안전한 런타임 운영을 다룹니다.',
+    'bunIn의 오픈소스 React Native Micro Frontend 프로젝트입니다. 모바일 앱 기능 모듈의 독립 배포, OTA 검증 게이트, 안전한 런타임 운영을 다룹니다.',
   author: { '@id': `${siteUrl}#organization` },
 };
 
@@ -189,6 +189,8 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="keywords" content={keywordContent} />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
         <link rel="canonical" href={siteUrl} />
         <link rel="alternate" hrefLang="ko-KR" href={siteUrl} />
         <link rel="alternate" hrefLang="x-default" href={siteUrl} />
@@ -242,7 +244,7 @@ export default function Layout({ children }: LayoutProps) {
       <footer id="company" className={s.footer}>
         <div>
           <strong>bunIn · 번인 · BURNED-IN</strong>
-          <p>풀스택 · 앱 · 클라우드 네이티브 · Kubernetes · Docker · Argo CD · 사업자등록번호 315-70-00623</p>
+          <p>제품 설계 · 앱 경험 · 백엔드 흐름 · 배포 운영 · 사업자등록번호 315-70-00623</p>
         </div>
         <div>
           <p>Official domain: <code>bunin.app</code></p>
