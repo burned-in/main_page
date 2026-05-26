@@ -1,9 +1,25 @@
 {
-  "name": "번인",
-  "short_name": "번인",
+  "name": "bunIn · 번인",
+  "short_name": "bunIn",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#050814",
   "theme_color": "#050814",
-  "lang": "ko-KR"
+  "description": "React Native Micro Frontend와 모바일 배포 안전성을 만드는 IT 엔지니어링 기업 bunIn.",
+  "lang": "ko-KR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }

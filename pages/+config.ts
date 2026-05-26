@@ -5,7 +5,8 @@ export default {
   extends: vikeReact,
   prerender: true,
   lang: 'ko-KR',
-  title: '번인 | IT에 미친 기업',
+  viewport: null,
+  title: 'bunIn 번인 | 풀스택·앱·클라우드 네이티브 개발 기업',
   description:
-    '번인은 React Native Micro Frontend를 중심으로 모바일 앱 배포와 런타임 안전성을 끝까지 파고드는 IT 엔지니어링 스튜디오입니다.',
+    'bunIn(번인)은 React, Next.js, Vite, React Native, Kotlin, Swift, Java, Rust, Go, Docker, Kubernetes, Argo CD까지 다루는 풀스택·앱·클라우드 네이티브 개발 기업입니다.',
 } satisfies Config;

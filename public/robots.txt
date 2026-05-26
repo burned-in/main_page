@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bunin.app/sitemap.xml
+Host: bunin.app

@@ -10,10 +10,11 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "vike dev",
-    "build": "vike build",
+    "dev": "panda codegen && vike dev",
+    "build": "panda codegen && vike build",
     "preview": "vike preview",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "panda codegen && tsc -p tsconfig.json --noEmit",
+    "prepare": "panda codegen"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^6.0.2",
@@ -25,6 +26,7 @@
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
+    "@pandacss/dev": "^1.11.1",
     "@types/node": "^22.15.30",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.2.3"

@@ -37,3 +37,7 @@ Thumbs.db
 
 # Local agent/runtime state
 .omx/
+
+# Panda CSS generated files
+styled-system/
+styled-system-static/
