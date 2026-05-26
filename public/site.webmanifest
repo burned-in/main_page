@@ -1,0 +1,9 @@
+{
+  "name": "번인",
+  "short_name": "번인",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050814",
+  "theme_color": "#050814",
+  "lang": "ko-KR"
+}

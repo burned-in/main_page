@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+.pnp.*
+
+# Build output and framework caches
+dist/
+build/
+.vite/
+.vike/
+.cache/
+
+# Test and coverage output
+coverage/
+*.lcov
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.local.example
+
+# Logs and diagnostics
+logs/
+*.log
+bun-debug.log*
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Local agent/runtime state
+.omx/
