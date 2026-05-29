@@ -149,9 +149,22 @@ const softwareJsonLd = {
 const themeBootScript = `(() => {
   const storageKey = 'bunin-theme';
   const root = document.documentElement;
-  const savedTheme = localStorage.getItem(storageKey);
-  const preferredTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-  const theme = savedTheme || preferredTheme;
+  const normalizeTheme = (theme) => theme === 'dark' || theme === 'light' ? theme : null;
+  const readStoredTheme = () => {
+    try {
+      return normalizeTheme(localStorage.getItem(storageKey));
+    } catch {
+      return null;
+    }
+  };
+  const getPreferredTheme = () => {
+    try {
+      return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } catch {
+      return 'light';
+    }
+  };
+  const theme = readStoredTheme() || getPreferredTheme();
   root.dataset.theme = theme;
   root.style.colorScheme = theme;
 })();`;
@@ -161,14 +174,30 @@ const themeToggleScript = `(() => {
   const root = document.documentElement;
   const toggle = document.querySelector('[data-theme-toggle]');
   const label = document.querySelector('[data-theme-toggle-label]');
-  const applyTheme = (theme) => {
-    root.dataset.theme = theme;
-    root.style.colorScheme = theme;
-    localStorage.setItem(storageKey, theme);
-    if (toggle) toggle.setAttribute('aria-pressed', String(theme === 'light'));
-    if (label) label.textContent = theme === 'light' ? 'Light' : 'Dark';
+  const normalizeTheme = (theme) => theme === 'dark' || theme === 'light' ? theme : null;
+  const getPreferredTheme = () => {
+    try {
+      return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } catch {
+      return 'light';
+    }
   };
-  applyTheme(root.dataset.theme || 'dark');
+  const persistTheme = (theme) => {
+    try {
+      localStorage.setItem(storageKey, theme);
+    } catch {
+      // Some in-app browsers, including KakaoTalk WebView variants, can block storage.
+    }
+  };
+  const applyTheme = (theme, options = {}) => {
+    const nextTheme = normalizeTheme(theme) || getPreferredTheme();
+    root.dataset.theme = nextTheme;
+    root.style.colorScheme = nextTheme;
+    if (options.persist !== false) persistTheme(nextTheme);
+    if (toggle) toggle.setAttribute('aria-pressed', String(nextTheme === 'light'));
+    if (label) label.textContent = nextTheme === 'light' ? 'Light' : 'Dark';
+  };
+  applyTheme(root.dataset.theme, { persist: false });
   toggle?.addEventListener('click', () => {
     applyTheme(root.dataset.theme === 'light' ? 'dark' : 'light');
   });
