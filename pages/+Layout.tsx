@@ -28,6 +28,9 @@ const keywordContent = [
   'Next.js',
   'Vite',
   'React Native',
+  'Prisma',
+  'PostgreSQL',
+  'postgres_fdw',
   'Kotlin',
   'Swift',
   'Java',
@@ -69,7 +72,9 @@ const organizationJsonLd = {
   sameAs: [
     'https://github.com/burned-in',
     'https://github.com/burned-in/react-native-micro-frontend',
+    'https://github.com/burned-in/prisma-pg-crossdb',
     'https://rnmfe.bunin.app/',
+    'https://pxdb.bunin.app/',
   ],
 };
 
@@ -133,18 +138,33 @@ const faqJsonLd = {
   ],
 };
 
-const softwareJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareSourceCode',
-  name: 'React Native Micro Frontend',
-  codeRepository: 'https://github.com/burned-in/react-native-micro-frontend',
-  url: 'https://rnmfe.bunin.app/',
-  programmingLanguage: ['TypeScript', 'React Native'],
-  applicationCategory: 'DeveloperApplication',
-  description:
-    'bunIn의 오픈소스 React Native Micro Frontend 프로젝트입니다. 모바일 앱 기능 모듈의 독립 배포, OTA 검증 게이트, 안전한 런타임 운영을 다룹니다.',
-  author: { '@id': `${siteUrl}#organization` },
-};
+const softwareJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: 'React Native Micro Frontend',
+    codeRepository: 'https://github.com/burned-in/react-native-micro-frontend',
+    url: 'https://rnmfe.bunin.app/',
+    programmingLanguage: ['TypeScript', 'React Native'],
+    applicationCategory: 'DeveloperApplication',
+    description:
+      'bunIn의 오픈소스 React Native Micro Frontend 프로젝트입니다. 모바일 앱 기능 모듈의 독립 배포, OTA 검증 게이트, 안전한 런타임 운영을 다룹니다.',
+    author: { '@id': `${siteUrl}#organization` },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: 'Prisma PG CrossDB',
+    codeRepository: 'https://github.com/burned-in/prisma-pg-crossdb',
+    url: 'https://pxdb.bunin.app/',
+    programmingLanguage: ['TypeScript', 'SQL'],
+    applicationCategory: 'DeveloperApplication',
+    runtimePlatform: 'Node.js',
+    description:
+      'bunIn의 오픈소스 Prisma PG CrossDB 프로젝트입니다. pxdb CLI로 PostgreSQL postgres_fdw 기반 CrossDB schema artifact를 만들고 Prisma가 최종 타입을 생성하게 합니다.',
+    author: { '@id': `${siteUrl}#organization` },
+  },
+];
 
 const themeBootScript = `(() => {
   const storageKey = 'bunin-theme';
@@ -218,8 +238,9 @@ export default function Layout({ children }: LayoutProps) {
         <meta name="keywords" content={keywordContent} />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400..900&display=swap" />
         <link rel="canonical" href={siteUrl} />
         <link rel="alternate" hrefLang="ko-KR" href={siteUrl} />
         <link rel="alternate" hrefLang="x-default" href={siteUrl} />

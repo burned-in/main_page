@@ -26,7 +26,7 @@ export default defineConfig({
       '--shadow': '0 30px 100px rgba(0, 0, 0, 0.45)',
       '--soft-shadow': '0 18px 60px rgba(0, 0, 0, 0.24)',
       '--content-width': '1180px',
-      '--font-sans': '"Pretendard Variable", Pretendard, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo", "Segoe UI", sans-serif',
+      '--font-sans': '"Noto Sans KR", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif',
       fontFamily: 'var(--font-sans)',
     },
     ':root[data-theme="light"]': {
@@ -57,6 +57,8 @@ export default defineConfig({
       background: 'radial-gradient(circle at top left, color-mix(in srgb, var(--brand) 22%, transparent), transparent 34rem), radial-gradient(circle at 78% 20%, color-mix(in srgb, var(--hot) 18%, transparent), transparent 30rem), linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 48%, var(--bg) 100%)',
       color: 'var(--text)',
       fontFamily: 'var(--font-sans)',
+      lineHeight: '1.68',
+      letterSpacing: '-0.012em',
       wordBreak: 'keep-all',
       textWrap: 'pretty',
       WebkitFontSmoothing: 'antialiased',

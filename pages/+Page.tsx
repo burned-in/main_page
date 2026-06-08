@@ -205,6 +205,24 @@ status: obsessed_with_it`}</code></pre>
               <a href="https://github.com/burned-in/react-native-micro-frontend" target="_blank" rel="noreferrer">오픈소스 런타임 보기</a>
             </div>
           </article>
+
+          <article className={s.projectCard}>
+            <div className={s.cardTop}>
+              <span className={s.tag}>Open Source</span>
+              <span className={s.status}>pxdb</span>
+            </div>
+            <h3 className={s.h3}>Prisma PG CrossDB</h3>
+            <p>
+              PostgreSQL과 Prisma를 함께 쓰는 팀을 위한 CrossDB CLI입니다.
+              기존 Prisma schema는 건드리지 않고, anchor comment와 companion generated schema,
+              built schema artifact를 통해 postgres_fdw 기반 원격 모델을 안전하게 조립합니다.
+              최종 타입은 Prisma가 직접 생성하도록 설계했습니다.
+            </p>
+            <div className={s.projectActions}>
+              <a href="https://pxdb.bunin.app/" target="_blank" rel="noreferrer">문서 보기</a>
+              <a href="https://github.com/burned-in/prisma-pg-crossdb" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </article>
         </div>
       </section>
 
