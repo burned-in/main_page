@@ -6,7 +6,7 @@ export default {
   prerender: true,
   lang: 'ko-KR',
   viewport: null,
-  title: 'bunIn 번인 | 홈페이지와 앱을 만드는 제작사',
+  title: 'bunIn 번인 | 홈페이지, 앱, 예약 결제, 관리자 화면 제작',
   description:
-    'bunIn(번인)은 홈페이지, 앱, 예약, 결제, 관리자 화면을 만드는 제작사입니다.',
+    'bunIn(번인)은 홈페이지와 앱, 예약 결제, 관리자 화면을 필요한 만큼 설계하고 만드는 서비스 개발사입니다.',
 } satisfies Config;

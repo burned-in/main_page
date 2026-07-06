@@ -5,6 +5,7 @@ import {
   companyFacts,
   faqs,
   customerPromises,
+  conversionQuestions,
   principles,
   projects,
   scrollStoryPanels,
@@ -37,14 +38,14 @@ export function HomePage() {
               <span>쓰이는 서비스로.</span>
             </h1>
             <p className={s.heroText}>
-              홈페이지, 앱, 예약과 결제, 관리 화면을 함께 만듭니다.
+              홈페이지, 앱, 예약 결제, 관리자 화면까지 실제로 쓰이는 서비스로 만듭니다.
             </p>
             <div className={s.actionRow}>
-              <a className={s.buttonPrimary} href="#project" data-micro>
-                무엇을 만들 수 있나요?
+              <a className={s.buttonPrimary} href="#conversion" data-micro>
+                시작 전 체크
               </a>
-              <a className={s.buttonGhost} href="#seo-profile" data-micro>
-                회사 정보 보기
+              <a className={s.buttonGhost} href="#project" data-micro>
+                제작 범위 보기
               </a>
             </div>
           </section>
@@ -74,7 +75,7 @@ export function HomePage() {
         ))}
       </section>
 
-      <section className={s.motionStrip} aria-label="고객 안내" data-reveal>
+      <section className={s.motionStrip} aria-label="제작 방향" data-reveal>
         {customerPromises.map(([title, body]) => (
           <article key={title} data-micro>
             <span>{title}</span>
@@ -85,9 +86,9 @@ export function HomePage() {
 
       <section id="project" className={s.section}>
         <div className={s.sectionHeader} data-reveal>
-          <h2 className={s.h2}>필요한 것부터 시작합니다.</h2>
+          <h2 className={s.h2}>필요한 것부터 가볍게 시작하세요.</h2>
           <p>
-            홈페이지 하나만 필요해도 괜찮습니다. 예약, 결제, 문의, 관리 화면까지 필요한 만큼 정리합니다.
+            홈페이지 하나만 필요해도 괜찮습니다. 예약, 결제, 문의, 관리 화면은 필요할 때 붙이면 됩니다.
           </p>
         </div>
 
@@ -124,9 +125,9 @@ export function HomePage() {
 
       <section id="stack" className={cx(s.section, s.principlesSection)}>
         <div className={s.stickyText} data-reveal>
-          <h2 className={s.h2}>어렵게 말하지 않습니다.</h2>
+          <h2 className={s.h2}>복잡하게 말하지 않습니다.</h2>
           <p>
-            범위, 비용, 다음 할 일을 쉽게 설명합니다.
+            범위, 비용, 먼저 볼 일을 쉬운 말로 풀어드립니다.
           </p>
         </div>
         <div className={s.principleGrid}>
@@ -139,13 +140,43 @@ export function HomePage() {
         </div>
       </section>
 
+      <section id="conversion" className={cx(s.section, s.conversionSection)} aria-labelledby="conversion-title">
+        <div className={s.conversionPanel} data-reveal>
+          <div>
+            <h2 id="conversion-title" className={s.h2}>
+              시작 전에 세 가지만 보면 훨씬 빨라집니다.
+            </h2>
+            <p>
+              화면 수를 늘리기보다 첫 문장, 첫 버튼, 오픈 뒤 수정부터 살펴봅니다.
+            </p>
+            <div className={s.actionRow}>
+              <a className={s.buttonPrimary} href="#seo-profile" data-micro>
+                제작 범위 보기
+              </a>
+              <a className={s.buttonGhost} href="#company" data-micro>
+                회사 정보 보기
+              </a>
+            </div>
+          </div>
+
+          <ol className={s.conversionList}>
+            {conversionQuestions.map(([title, body]) => (
+              <li key={title} data-micro>
+                <strong>{title}</strong>
+                <span>{body}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section id="seo-profile" className={s.section} aria-labelledby="seo-profile-title">
         <div className={s.sectionHeader} data-reveal>
           <h2 id="seo-profile-title" className={s.h2}>
-            무엇을 맡길 수 있는지 한눈에 보여드립니다.
+            무엇을 맡길 수 있는지 바로 볼 수 있습니다.
           </h2>
           <p>
-            bunIn이 하는 일과 기본 정보를 한곳에 정리했습니다.
+            bunIn이 만드는 것과 기본 정보를 아래에 담았습니다.
           </p>
         </div>
         <div className={s.serviceGrid}>
@@ -170,7 +201,7 @@ export function HomePage() {
       <section className={cx(s.section, s.faqSection)} aria-labelledby="faq-title">
         <div className={s.sectionHeader} data-reveal>
           <h2 id="faq-title" className={s.h2}>
-            처음 문의 전에 많이 묻는 것들
+            처음 맡기기 전에 자주 묻는 것들
           </h2>
         </div>
         <div className={s.faqList}>
@@ -184,10 +215,18 @@ export function HomePage() {
       </section>
 
       <section className={s.cta} data-reveal>
-        <h2 className={s.h2}>만들고 싶은 일이 있다면, 짧게 들려주세요.</h2>
+        <h2 className={s.h2}>만들고 싶은 서비스가 있다면, 짧게 들려주세요.</h2>
         <p>
-          필요한 만큼만 정리해 바로 시작할 수 있습니다.
+          홈페이지, 앱, 예약 결제, 관리자 화면 중 지금 필요한 것부터 함께 맞춰드립니다.
         </p>
+        <div className={s.ctaActions}>
+          <a className={s.buttonPrimary} href="#conversion" data-micro>
+            시작 전 체크
+          </a>
+          <a className={s.buttonGhost} href="#project" data-micro>
+            다시 살펴보기
+          </a>
+        </div>
       </section>
     </main>
   );

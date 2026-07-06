@@ -4,9 +4,9 @@
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#050814",
-  "theme_color": "#050814",
-  "description": "React Native Micro Frontend와 모바일 배포 안전성을 만드는 IT 엔지니어링 기업 bunIn.",
+  "background_color": "#11110f",
+  "theme_color": "#11110f",
+  "description": "홈페이지와 앱, 예약 결제, 관리자 화면을 필요한 만큼 설계하고 만드는 서비스 개발사 bunIn.",
   "lang": "ko-KR",
   "icons": [
     {

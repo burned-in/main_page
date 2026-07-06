@@ -10,9 +10,9 @@ type LayoutProps = {
 
 const siteUrl = 'https://bunin.app/';
 const siteName = 'bunIn · 번인';
-const pageTitle = 'bunIn 번인 | 홈페이지와 앱을 만드는 제작사';
+const pageTitle = 'bunIn 번인 | 홈페이지, 앱, 예약 결제, 관리자 화면 제작';
 const pageDescription =
-  'bunIn(번인)은 홈페이지, 앱, 예약, 결제, 관리자 화면을 만드는 제작사입니다.';
+  'bunIn(번인)은 홈페이지와 앱, 예약 결제, 관리자 화면을 필요한 만큼 설계하고 만드는 서비스 개발사입니다.';
 const ogImageUrl = 'https://bunin.app/og-image.png';
 const keywordContent = [
   'bunIn',
@@ -22,10 +22,49 @@ const keywordContent = [
   '앱',
   '예약과 결제',
   '예약 결제',
+  '홈페이지 제작',
+  '앱 제작',
+  '랜딩페이지 제작',
   '관리자 화면',
+  '관리자 페이지 제작',
   '업무 관리',
+  '서비스 개발사',
+  '웹앱 제작',
   '반복 업무 줄이기',
 ].join(', ');
+
+const serviceCatalog = [
+  {
+    '@type': 'Service',
+    '@id': `${siteUrl}#website-app-development`,
+    name: '홈페이지와 앱 제작',
+    serviceType: 'Website and app development',
+    url: `${siteUrl}#project`,
+    description: '회사 소개, 서비스 안내, 신청 버튼, 앱 화면을 처음 보는 사람도 자연스럽게 읽도록 구성합니다.',
+    areaServed: { '@type': 'Country', name: 'KR' },
+    provider: { '@id': `${siteUrl}#organization` },
+  },
+  {
+    '@type': 'Service',
+    '@id': `${siteUrl}#reservation-payment-development`,
+    name: '예약 결제 화면 제작',
+    serviceType: 'Reservation and payment flow development',
+    url: `${siteUrl}#project`,
+    description: '예약, 결제, 문의, 알림이 서비스 안에서 자연스럽게 이어지도록 연결합니다.',
+    areaServed: { '@type': 'Country', name: 'KR' },
+    provider: { '@id': `${siteUrl}#organization` },
+  },
+  {
+    '@type': 'Service',
+    '@id': `${siteUrl}#admin-dashboard-development`,
+    name: '관리자 화면 제작',
+    serviceType: 'Admin screen and workflow development',
+    url: `${siteUrl}#seo-profile`,
+    description: '주문, 문의, 회원, 파일처럼 반복해서 보는 일을 한 화면에서 확인하도록 구성합니다.',
+    areaServed: { '@type': 'Country', name: 'KR' },
+    provider: { '@id': `${siteUrl}#organization` },
+  },
+] as const;
 
 const organizationJsonLd = {
   '@context': 'https://schema.org',
@@ -57,6 +96,15 @@ const organizationJsonLd = {
     'https://rnmfe.bunin.app/',
     'https://pxdb.bunin.app/',
   ],
+  makesOffer: {
+    '@type': 'OfferCatalog',
+    name: 'bunIn 제작 서비스',
+    itemListElement: serviceCatalog.map((service, index) => ({
+      '@type': 'Offer',
+      position: index + 1,
+      itemOffered: { '@id': service['@id'] },
+    })),
+  },
 };
 
 const webSiteJsonLd = {
@@ -80,10 +128,38 @@ const webPageJsonLd = {
   inLanguage: 'ko-KR',
   isPartOf: { '@id': `${siteUrl}#website` },
   about: { '@id': `${siteUrl}#organization` },
+  mainEntity: serviceCatalog.map((service) => ({ '@id': service['@id'] })),
+  significantLink: [`${siteUrl}#project`, `${siteUrl}#stack`, `${siteUrl}#conversion`, `${siteUrl}#seo-profile`],
   primaryImageOfPage: {
     '@type': 'ImageObject',
     url: ogImageUrl,
   },
+};
+
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${siteUrl}#breadcrumb`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: '홈',
+      item: siteUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: '서비스',
+      item: `${siteUrl}#project`,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: '시작 전 체크',
+      item: `${siteUrl}#conversion`,
+    },
+  ],
 };
 
 const faqJsonLd = {
@@ -97,7 +173,7 @@ const faqJsonLd = {
       name: 'bunIn은 어떤 회사인가요?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'bunIn(번인)은 홈페이지, 앱, 예약, 결제, 관리자 화면을 만드는 제작사입니다.',
+        text: 'bunIn(번인)은 홈페이지와 앱, 예약 결제, 관리자 화면을 만드는 서비스 개발사입니다.',
       },
     },
     {
@@ -105,7 +181,7 @@ const faqJsonLd = {
       name: '어떤 일을 맡길 수 있나요?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '고객이 보는 화면부터 직원이 쓰는 관리 화면까지 맡길 수 있습니다.',
+        text: '외부에 보여줄 랜딩페이지부터 내부에서 쓸 관리자 화면까지 맡길 수 있습니다.',
       },
     },
     {
@@ -113,7 +189,7 @@ const faqJsonLd = {
       name: '개발을 잘 몰라도 상담할 수 있나요?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: '네. 만들고 싶은 일과 불편한 점만 알려주셔도 됩니다. 필요한 순서는 함께 정합니다.',
+        text: '네. 만들고 싶은 것과 불편한 점만 편하게 알려주시면 됩니다. 필요한 순서는 함께 잡습니다.',
       },
     },
   ],
@@ -176,13 +252,16 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-        <meta name="theme-color" content="#05070c" media="(prefers-color-scheme: dark)" />
-        <meta name="theme-color" content="#f5fbfa" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#11110f" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#f5f0e7" media="(prefers-color-scheme: light)" />
         <meta name="application-name" content={siteName} />
         <meta name="apple-mobile-web-app-title" content="bunIn" />
         <meta name="author" content="bunIn" />
         <meta name="publisher" content="bunIn" />
         <meta name="keywords" content={keywordContent} />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <meta name="format-detection" content="telephone=no, address=no, email=no" />
+        <meta name="color-scheme" content="dark light" />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={siteUrl} />
@@ -196,19 +275,28 @@ export default function Layout({ children }: LayoutProps) {
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta property="og:image:alt" content="bunIn 번인 - 홈페이지와 앱을 만드는 제작사" />
+        <meta property="og:image:alt" content="bunIn 번인 - 생각만 하던 일을 쓰이는 서비스로" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={siteUrl} />
         <meta name="twitter:title" content={pageTitle} />
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={ogImageUrl} />
-        <meta name="twitter:image:alt" content="bunIn 번인 - 홈페이지와 앱을 만드는 제작사" />
+        <meta name="twitter:image:alt" content="bunIn 번인 - 생각만 하던 일을 쓰이는 서비스로" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="mask-icon" href="/favicon.svg" color="#6ee7d8" />
+        <link rel="mask-icon" href="/favicon.svg" color="#ff4e57" />
         <link rel="manifest" href="/site.webmanifest" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+        {serviceCatalog.map((service) => (
+          <script
+            key={service['@id']}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', ...service }) }}
+          />
+        ))}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }} />
       </Head>
@@ -225,6 +313,7 @@ export default function Layout({ children }: LayoutProps) {
           <nav className={s.nav} aria-label="주요 메뉴">
             <a href="#project">서비스</a>
             <a href="#stack">진행 방식</a>
+            <a href="#conversion" className={s.navCta}>시작 전 체크</a>
             <a href="#seo-profile">기업 정보</a>
           </nav>
           <ThemeToggle />

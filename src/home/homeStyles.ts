@@ -510,6 +510,49 @@ export const homeStyles = {
     minWidth: '0',
     '@media (max-width: 900px)': { gridTemplateColumns: '1fr' },
   }),
+  conversionSection: css({
+    scrollMarginTop: '6rem',
+  }),
+  conversionPanel: css({
+    display: 'grid',
+    gridTemplateColumns: 'minmax(0, 1.05fr) minmax(18rem, .95fr)',
+    gap: 'clamp(1.5rem, 5vw, 4rem)',
+    alignItems: 'start',
+    padding: 'clamp(1.25rem, 4vw, 2rem)',
+    border: '1px solid color-mix(in srgb, var(--brand) 32%, var(--line))',
+    background:
+      'linear-gradient(135deg, color-mix(in srgb, var(--brand) 10%, transparent), transparent 58%), color-mix(in srgb, var(--panel-strong) 78%, transparent)',
+    boxShadow: 'var(--soft-shadow)',
+    '& p': { ...mutedText, maxWidth: '40rem' },
+    '@media (max-width: 860px)': {
+      gridTemplateColumns: '1fr',
+      padding: '1.15rem',
+    },
+  }),
+  conversionList: css({
+    display: 'grid',
+    gap: '0',
+    margin: '0',
+    padding: '0',
+    listStyle: 'none',
+    borderTop: '1px solid var(--line)',
+    '& li': {
+      display: 'grid',
+      gap: '.35rem',
+      padding: '1rem 0',
+      borderBottom: '1px solid var(--line)',
+    },
+    '& strong': {
+      color: 'var(--text)',
+      fontSize: '1.02rem',
+      lineHeight: '1.35',
+      letterSpacing: '-.02em',
+    },
+    '& span': {
+      color: 'var(--muted)',
+      lineHeight: '1.72',
+    },
+  }),
   stickyText: css({
     position: 'sticky',
     top: '7rem',
@@ -589,6 +632,12 @@ export const homeStyles = {
     background: 'transparent',
     '& h2': { maxWidth: '900px', marginBottom: '0' },
     '& p': { ...mutedText, maxWidth: '40rem' },
+  }),
+  ctaActions: css({
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '.85rem',
+    marginTop: '.2rem',
   }),
   sceneShell: css({
     position: 'relative',

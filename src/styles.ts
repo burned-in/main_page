@@ -100,6 +100,19 @@ export const layoutStyles = {
     },
     '@media (max-width: 430px)': { width: '100%' },
   }),
+  navCta: css({
+    color: 'var(--ink-on-brand)!important',
+    background: 'linear-gradient(135deg, var(--brand), var(--brand-strong))!important',
+    fontWeight: '850',
+    _hover: {
+      color: 'var(--ink-on-brand)!important',
+      background: 'linear-gradient(135deg, var(--brand), var(--brand-strong))!important',
+    },
+    _focusVisible: {
+      color: 'var(--ink-on-brand)!important',
+      background: 'linear-gradient(135deg, var(--brand), var(--brand-strong))!important',
+    },
+  }),
   themeToggle: css({
     display: 'inline-flex',
     alignItems: 'center',
