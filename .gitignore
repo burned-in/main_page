@@ -41,3 +41,6 @@ Thumbs.db
 # Panda CSS generated files
 styled-system/
 styled-system-static/
+
+# Local generated work artifacts
+_workspace/
